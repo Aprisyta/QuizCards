@@ -13,7 +13,7 @@ class QuizEntryPage extends Component {
     }
   }
 
-  startQuiz = () => {
+  startQuiz = (title) => {
     clearLocalNotification().then(setLocalNotification)
     this.props.navigation.navigate(
       'Card',
@@ -47,7 +47,7 @@ class QuizEntryPage extends Component {
             numOfQuestions > 0
               ? <TouchableOpacity
                 style={[styles.button, {backgroundColor: black}]}
-                onPress={this.startQuiz}
+                onPress={() => this.startQuiz(title)}
               >
                 <Text style={{color: white, fontSize: 20}}>Start Quiz</Text>
               </TouchableOpacity>
