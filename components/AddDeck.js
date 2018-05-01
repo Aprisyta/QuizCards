@@ -27,9 +27,12 @@ class AddDeck extends Component {
       }
     }))
 
-    this.setState({ text: '' })
+    this.props.navigation.navigate(
+      'QuizEntryPage',
+      { entryId: text }
+    )
 
-    this.props.navigation.goBack()
+    this.setState({ text: '' })
   }
 
   render () {

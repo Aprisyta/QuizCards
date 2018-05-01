@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, FlatList } from 'react-native'
-import DeckHeader from './DeckHeader'
+import  { DeckHeader } from './DeckHeader'
 import { getDecks } from '../utils/api'
 import { receiveDecks } from '../actions'
 import { connect } from 'react-redux'
-// import { List, ListItem } from 'react-native-elements'
 
 class DeckList extends Component {
 
@@ -30,7 +29,7 @@ class DeckList extends Component {
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate(
                 'QuizEntryPage',
-                {entryId: item}
+                {entryId: item.title}
               )}
             >
               <DeckHeader

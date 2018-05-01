@@ -22,7 +22,7 @@ class QuizEntryPage extends Component {
   }
 
   render () {
-    const { title } = this.props.navigation.state.params.entryId
+    const title  = this.props.navigation.state.params.entryId
     const { decks } = this.props
     const { numOfQuestions } = decks[title]
     return (
