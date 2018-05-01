@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, ScrollView } from 'react-native'
+import { View, TouchableOpacity, FlatList } from 'react-native'
 import DeckHeader from './DeckHeader'
 import { getDecks } from '../utils/api'
 import { receiveDecks } from '../actions'
 import { connect } from 'react-redux'
+// import { List, ListItem } from 'react-native-elements'
 
 class DeckList extends Component {
 
@@ -23,24 +24,23 @@ class DeckList extends Component {
     }
     return (
       <View style={{flex: 1, }}>
-        <ScrollView>
-          {
-            deckList.map((deck) => (
-              <TouchableOpacity
-                key={deck.title}
-                onPress={() => this.props.navigation.navigate(
-                  'QuizEntryPage',
-                  {entryId: deck}
-                )}
-              >
-                <DeckHeader
-                  numOfQuestions={deck.numOfQuestions}
-                  title={deck.title}
-                />
-              </TouchableOpacity>
-            ))
-          }
-      </ScrollView>
+        <FlatList
+          data={deckList}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate(
+                'QuizEntryPage',
+                {entryId: item}
+              )}
+            >
+              <DeckHeader
+                numOfQuestions={item.numOfQuestions}
+                title={item.title}
+              />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.title}
+        />
       </View>
     )
   }
