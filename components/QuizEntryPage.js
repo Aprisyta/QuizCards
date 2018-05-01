@@ -25,8 +25,6 @@ class QuizEntryPage extends Component {
     const { title } = this.props.navigation.state.params.entryId
     const { decks } = this.props
     const { numOfQuestions } = decks[title]
-    // const { key } = this.props.navigation.state
-    // console.log(key);
     return (
       <View style={styles.container}>
         <View style={styles.subContainer}>
