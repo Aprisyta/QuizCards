@@ -75,11 +75,6 @@ class Card extends Component {
     })
   }
 
-  goBack = () => {
-    this.props.navigation.dispatch(NavigationActions.back({key: 'QuizEntryPage'}))
-    console.log(NavigationActions.back());
-  }
-
   render () {
     const frontAnimatedStyle = {
       transform: [
@@ -92,8 +87,6 @@ class Card extends Component {
       ]
     }
     const title = this.props.navigation.state.params.entryId
-    // const { key } =  this.props.navigation.state.params
-    // console.log(this.props.navigation.state.params);
     const { isQuestion, questionCounter, score } = this.state
     const { decks } = this.props
     const { questions, numOfQuestions } = decks[title]

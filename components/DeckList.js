@@ -22,25 +22,24 @@ class DeckList extends Component {
       deckList.push(deck)
     }
     return (
-      <View style={{flex: 1, }}>
-        <FlatList
-          data={deckList}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate(
-                'QuizEntryPage',
-                {entryId: item.title}
-              )}
-            >
-              <DeckHeader
-                numOfQuestions={item.numOfQuestions}
-                title={item.title}
-              />
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item.title}
-        />
-      </View>
+      <FlatList
+        style={{ flex: 1 }}
+        data={deckList}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate(
+              'QuizEntryPage',
+              {entryId: item.title}
+            )}
+          >
+            <DeckHeader
+              numOfQuestions={item.numOfQuestions}
+              title={item.title}
+            />
+          </TouchableOpacity>
+        )}
+        keyExtractor={(item) => item.title}
+      />
     )
   }
 }
