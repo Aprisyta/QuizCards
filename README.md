@@ -6,7 +6,7 @@ QuizCards is a mobile flashcard app for android devices. The user can create dec
 
 To launch this project on your machine:
 
-* clone this repository using `git clone https://github.com/Aprisyta/MyReads.git`
+* clone this repository using `git clone https://github.com/Aprisyta/QuizCards.git`
 * install all project dependencies with `npm install`
 * install following packages: react-navigation, react-redux, redux
 * start the development server with `yarn start`
